@@ -8,6 +8,9 @@ module.exports = function(pb) {
      * @copyright 2014 PencilBlue, LLC
      */
     function Chartbeat(){}
+    
+    //pb dependencies
+    var PluginService = pb.PluginService;
 
     /**
      * Called when the application is being installed for the first time.
@@ -41,7 +44,8 @@ module.exports = function(pb) {
      */
     Chartbeat.onStartup = function(cb) {
         pb.AnalyticsManager.registerProvider('chartbeat', function(req, session, ls, cb) {
-            pb.plugins.getSetting('chartbeat_uid', 'chartbeat-pencilblue', function(err, chartbeatUID) {
+            var pluginService = new PluginService();
+            pluginService.getSetting('chartbeat_uid', 'chartbeat-pencilblue', function(err, chartbeatUID) {
                 //TODO handle error
                 if(!chartbeatUID || chartbeatUID.length === 0) {
                     return cb(err, '');
