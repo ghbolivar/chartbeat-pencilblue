@@ -1,6 +1,6 @@
 
 module.exports = function(pb) {
-    
+
     /**
      * Chartbeat - A chartbeat analytics plugin
      *
@@ -8,7 +8,7 @@ module.exports = function(pb) {
      * @copyright 2014 PencilBlue, LLC
      */
     function Chartbeat(){}
-    
+
     //pb dependencies
     var PluginService = pb.PluginService;
 
